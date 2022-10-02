@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long 
+
+signed main() {
+	// your code goes here
+	int n,sum;
+	cin>>n>>sum;
+	int arr[n],prefix[n];
+	for(int i =0; i<n; i++)
+	{
+		cin>>arr[i];
+		prefix[i]=arr[i];
+		if(i)prefix[i]=prefix[i-1]+arr[i];
+	}
+	map<int,int>m;
+	m[0]++; int ans=0;
+	for(int j=0; j<n; j++)
+	{
+		ans+=m[prefix[j]-sum];
+		m[prefix[j]]++;
+	}
+	cout<<ans<<endl;
+
+}
+	
+		
+		
+	
+	
+	
+	
