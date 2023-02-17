@@ -1,0 +1,71 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define fastio                        ios_base::sync_with_stdio(false); cin.tie(NULL); 
+#define int                           long long
+#define fauto(a,x)                    for (auto& a : x)
+#define pb                            push_back 
+#define sz                            size()
+#define vi              vector<int>
+#define rep(i,k,n)                    for (int i = k; i < n; i++)
+#define per(i,n,k)                   for (int i = n; i >= k; i--)
+#define YES                           cout << "YES\n";
+#define NO                            cout << "NO\n";
+#define Yes                           cout << "Yes\n";
+#define No                            cout << "No\n";
+void insert(vi &arr,int temp)
+{
+	if(arr.sz==0 or arr[arr.sz-1]<=temp)
+	{
+	arr.pb(temp);
+	return;
+	}
+	int val=arr[arr.sz-1];
+	arr.pop_back();
+	insert(arr,temp);
+	arr.pb(val);
+
+}
+void sort(vi &arr)
+{
+	if(arr.size()==1)
+	return;
+	int temp=arr[arr.sz-1];
+	arr.pop_back();
+	sort(arr);
+	insert(arr,temp);
+}
+void solve()
+{
+	int n;
+	cin>>n;
+	vi a(n);
+	rep(i,0,n)
+	{
+		cin>>a[i];
+	}
+	sort(a);
+	rep(i,0,n)
+	{
+		cout<<a[i]<<" ";
+	}
+	cout<<endl;
+	
+}
+
+
+signed main()
+{
+	int t=1;
+	//cin>>t;
+	while(t--)
+		solve();
+}
+
+
+	
+		
+		
+	
+	
+	
+	
